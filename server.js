@@ -5,11 +5,6 @@ const cors = require('cors');
 require('dotenv').config();
 
 app.use(cors(
-  {
-  origin: ["https://edumini-frontend.vercel.app/"],
-  methods: ["GET", "POST" , "PUT", "DELETE"],
-  credentials: true
-  }
 ));
 app.use(exp.json()); // Ensure JSON middleware is used
 
