@@ -46,6 +46,10 @@ app.use('/user-api', userApp); // application level middleware
 // Set up route handling
 app.use('/quiz-api', quizApp);
 
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+
 // Error-handling middleware
 app.use((err, req, res, next) => {
   res.status(500).send({ message: "error", payload: err.message });
