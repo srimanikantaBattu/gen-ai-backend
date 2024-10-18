@@ -9,6 +9,7 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 
 async function run(slokadata) {
+    console.log(slokadata)
     const prompt = `Create a quiz based on the following Content with 10 questions. Questions should ask the user to identify correct formula for a correct topic Not only formulas but also other content also. Provide the quiz in a plain JSON format with no additional text or markdown. The JSON should have the following structure:
 
     {
@@ -25,7 +26,7 @@ async function run(slokadata) {
       }
     }
 
-    The dataset is: ${slokadata}. Make sure the response only includes the JSON object as shown above, without any additional text or formatting. The answer should be in options and convert the data set into __dangerHTML format and give quiz from that data. Dont give any other texts just give JSON`;
+    On this data the quiz should be generated and the data is: ${slokadata}. Make sure the response only includes the JSON object as shown above, without any additional text or formatting. The answer should be in options and convert the data set into __dangerHTML format and give quiz from that data. Dont give any other texts just give JSON`;
 
 
     // Call the AI model with the generated prompt
@@ -66,7 +67,7 @@ async function getDatafromGemini(data) {
     const result = await model.generateContent(prompt);
     const response = await result.response;
     const text = await response.text();
-    return text.replace(/\*\*/g, '').replace(/\* /g, '\n* ').replace(/### /g, '\n');;; // Remove all instances of ** from the content
+    return text.replace(/\*\*/g, '').replace(/\* /g, '\n* ').replace(/### /g, '\n');;;
 }
 //import asynchrous handler to handle asynchronous error
 const expressAsyncHandler = require('express-async-handler');
