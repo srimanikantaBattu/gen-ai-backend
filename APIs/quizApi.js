@@ -26,7 +26,7 @@ async function run(slokadata) {
       }
     }
 
-    On this data the quiz should be generated and the data is: ${slokadata}. Make sure the response only includes the JSON object as shown above, without any additional text or formatting. The answer should be in options and convert the data set into __dangerHTML format and give quiz from that data. Dont give any other texts just give JSON`;
+    On this data the quiz should be generated and the data is: ${slokadata}. Make sure the response only includes the JSON object as shown above, without any additional text or formatting. The answer should be in options and convert the data set into __dangerHTML format and give quiz from that data. And the quiz should related to only ${slokadata} Dont give any other texts just give JSON`;
 
 
     // Call the AI model with the generated prompt
