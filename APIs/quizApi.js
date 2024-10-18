@@ -10,7 +10,7 @@ const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 
 async function run(slokadata) {
     console.log(slokadata)
-    const prompt = `Create a quiz based on the following Content with 10 questions. Questions should ask the user to identify correct formula for a correct topic Not only formulas but also other content also. Provide the quiz in a plain JSON format with no additional text or markdown. The JSON should have the following structure:
+    const prompt = `Create a quiz based on the ${slokadata} subject with 10 questions. Questions should ask the user to identify correct formula for a correct topic Not only formulas but also other content also. Provide the quiz in a plain JSON format with no additional text or markdown. The JSON should have the following structure:
 
     {
       "quiz": {
@@ -26,7 +26,7 @@ async function run(slokadata) {
       }
     }
 
-    On this data the quiz should be generated and the data is: ${slokadata}. Make sure the response only includes the JSON object as shown above, without any additional text or formatting. The answer should be in options and convert the data set into __dangerHTML format and give quiz from that data. And the quiz should related to only ${slokadata} Dont give any other texts just give JSON`;
+    The quiz should be generate the questions related to the ${slokadata} concepts. Make sure the response only includes the JSON object as shown above, without any additional text or formatting. The answer should be in options and convert the data set into __dangerHTML format and give quiz from that data. And the quiz should related to only ${slokadata} Dont give any other texts just give JSON`;
 
 
     // Call the AI model with the generated prompt
